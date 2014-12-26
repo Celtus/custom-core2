@@ -1,0 +1,19 @@
+#!/bin/bash
+
+rm auth/*
+rm runtime/*
+rm world/*
+
+util/mktablelist unity3 passw0rd unity3_auth_dev auth
+util/mktablelist unity3 passw0rd unity3_runtime_dev runtime
+util/mktablelist unity3 passw0rd unity3_world_dev world
+
+util/reorgtables unity3 passw0rd unity3_auth_dev auth
+util/reorgtables unity3 passw0rd unity3_runtime_dev runtime
+util/reorgtables unity3 passw0rd unity3_world_dev world
+
+util/dumptables unity3 passw0rd unity3_auth_dev auth
+util/dumptables unity3 passw0rd unity3_runtime_dev runtime
+util/dumptables unity3 passw0rd unity3_world_dev world
+
+# EOF

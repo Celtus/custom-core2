@@ -1,0 +1,69 @@
+#!/bin/sh
+
+#
+# dumptable
+# Development clean database table dump utility.
+#
+# Copyright (C) 2013 Unity <http://unitycore.org/>
+#
+
+# Version
+DBVER="1.0"
+
+if [ $# -lt 4 ]; then
+  echo "usage: $0 DBUSER DBPASS DIRECTORY_NAME DATABASE_NAME TABLE_NAME"
+  exit 1
+fi
+
+# Get db credentials
+DBUSER=${1}
+DBPASS=${2}
+
+# Get dir name
+DIRNAME=${3}
+
+# Get db name
+DBNAME=${4}
+
+# Get table name
+TABLENAME=${5}
+
+echo "Saving $TABLENAME"
+if [ -f $DIRNAME/$TABLENAME.sql ]; then
+  rm $DIRNAME/$TABLENAME.sql
+fi
+mysqldump --skip-extended-insert -c -u $DBUSER -p$DBPASS $DBNAME $TABLENAME > /tmp/$TABLENAME.sql
+# Clean up sql
+SQLLINES=`wc -l /tmp/$TABLENAME.sql | awk '{print $1}'`
+SQLHEAD=6
+SQLTAIL=2
+SQLBODY1=`expr $SQLLINES - $SQLTAIL`
+SQLBODY2=`expr $SQLBODY1 - $SQLHEAD`
+echo "-- -------------------------------------------------------------------" > $DIRNAME/$TABLENAME.sql
+echo "-- Unity Database" >> $DIRNAME/$TABLENAME.sql
+echo "-- -------------------------------------------------------------------" >> $DIRNAME/$TABLENAME.sql
+echo "" >> $DIRNAME/$TABLENAME.sql 
+echo "-- Table      : $TABLENAME" >> $DIRNAME/$TABLENAME.sql
+echo "-- Filename   : $TABLENAME.sql" >> $DIRNAME/$TABLENAME.sql
+echo "-- DB Version : $DBVER" >> $DIRNAME/$TABLENAME.sql
+echo "" >> $DIRNAME/$TABLENAME.sql
+echo "-- Copyright (C) 2013 Unity <http://unitycore.org/>" >> $DIRNAME/$TABLENAME.sql
+echo "" >> $DIRNAME/$TABLENAME.sql
+echo "-- This  file is  free software;  as a  special exception  the  author" >> $DIRNAME/$TABLENAME.sql
+echo "-- gives  unlimited permission  to copy and/or distribute it,  with or" >> $DIRNAME/$TABLENAME.sql
+echo "-- without modification, as long as this notice is preserved." >> $DIRNAME/$TABLENAME.sql
+echo "" >> $DIRNAME/$TABLENAME.sql
+echo "-- This program is distributed in the hope that it will be useful, but" >> $DIRNAME/$TABLENAME.sql
+echo "-- WITHOUT ANY WARRANTY,  to the extent permitted by law; without even" >> $DIRNAME/$TABLENAME.sql
+echo "-- the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR" >> $DIRNAME/$TABLENAME.sql
+echo "-- PURPOSE." >> $DIRNAME/$TABLENAME.sql
+echo "" >> $DIRNAME/$TABLENAME.sql
+echo "-- -------------------------------------------------------------------" >> $DIRNAME/$TABLENAME.sql
+echo "" >> $DIRNAME/$TABLENAME.sql
+head -$SQLBODY1 /tmp/$TABLENAME.sql | tail -n $SQLBODY2 >> $DIRNAME/$TABLENAME.sql
+echo "" >> $DIRNAME/$TABLENAME.sql
+echo "-- End-Of-File: $TABLENAME.sql" >> $DIRNAME/$TABLENAME.sql
+echo "" >> $DIRNAME/$TABLENAME.sql
+rm /tmp/$TABLENAME.sql
+
+# EOF

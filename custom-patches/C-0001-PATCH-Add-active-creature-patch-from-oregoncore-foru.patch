@@ -1,0 +1,66 @@
+From dae0f4afd9938ed79b9cb39c1ac860f947f9f5fd Mon Sep 17 00:00:00 2001
+From: Celtus <celtus614@gmail.com>
+Date: Mon, 8 Sep 2014 06:47:45 -0400
+Subject: [PATCH] [PATCH] Add active creature patch from oregoncore forum
+ (long ago).
+
+---
+ database                 |    1 +
+ src/game/Creature.cpp    |    3 +++
+ src/game/Creature.h      |    1 +
+ src/game/SQLStorages.cpp |    4 ++--
+ 4 files changed, 7 insertions(+), 2 deletions(-)
+ create mode 160000 database
+
+diff --git a/database b/database
+new file mode 160000
+index 0000000..7c5f79b
+--- /dev/null
++++ b/database
+@@ -0,0 +1 @@
++Subproject commit 7c5f79b859ea59a40f84adab3dec7b9ca2d749b9
+diff --git a/src/game/Creature.cpp b/src/game/Creature.cpp
+index c892abb..9840d38 100644
+--- a/src/game/Creature.cpp
++++ b/src/game/Creature.cpp
+@@ -2048,6 +2048,9 @@ bool Creature::LoadCreatureAddon(bool reload)
+     if (cainfo->splineFlags & SPLINEFLAG_FLYING)
+         SetLevitate(true);
+ 
++    if (cainfo->isActive)
++        SetActiveObjectState(true);
++
+     if (cainfo->auras)
+     {
+         for (uint32 const* cAura = cainfo->auras; *cAura; ++cAura)
+diff --git a/src/game/Creature.h b/src/game/Creature.h
+index 4f6dbf8..90f754b 100644
+--- a/src/game/Creature.h
++++ b/src/game/Creature.h
+@@ -233,6 +233,7 @@ struct CreatureDataAddon
+     uint8  pvp_state;                                       // UnitPVPStateFlags
+     uint32 emote;
+     uint32 splineFlags;
++    uint32 isActive;
+     uint32 const* auras;                                    // loaded as char* "spell1 spell2 ... "
+ };
+ 
+diff --git a/src/game/SQLStorages.cpp b/src/game/SQLStorages.cpp
+index 6011154..521e098 100644
+--- a/src/game/SQLStorages.cpp
++++ b/src/game/SQLStorages.cpp
+@@ -20,9 +20,9 @@
+ 
+ const char CreatureInfosrcfmt[] = "isssiiiiiiiiiiifiiiiliiiiiffiiiffffffiiiiffffiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiss";
+ const char CreatureInfodstfmt[] = "isssiiiiiiiiiiifiiiiliiiiiffiiiffffffiiiiffffiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiisi";
+-const char CreatureDataAddonInfofmt[] = "iiibbiis";
++const char CreatureDataAddonInfofmt[] = "iiibbiiis";
+ const char CreatureModelfmt[] = "iffbii";
+-const char CreatureInfoAddonInfofmt[] = "iiibbiis";
++const char CreatureInfoAddonInfofmt[] = "iiibbiiis";
+ const char GameObjectInfoAddonInfofmt[] = "iffff";
+ const char EquipmentInfofmt[] = "iiii";
+ const char GameObjectInfosrcfmt[] = "iiissssiifiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiis";
+-- 
+1.7.10.4
+

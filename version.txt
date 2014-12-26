@@ -1,0 +1,26 @@
+Portal
+95979522af2d3c2bf5e233e3853d9d6b40b64a04 12/22/2014
+https://github.com/blueboy/portal
+Compat: cmangos/mangos-wotlk 12801
+
+MaNGOS-WotLK
+1ace652b8702e50c0981416e0bc9dc498cab76fe 12/24/2014
+https://github.com/cmangos/mangos-wotlk
+Rev: 12803
+
+ScriptDev2
+f1d83628b97e5e5efe62bde00fff12d3267c1e0d 12/24/2014
+https://github.com/scriptdev2/scriptdev2
+Compat: cmangos/mangos-wotlk 12803
+
+ACID
+2bf88d8941539bc6bca62dc80e366f8db54e5b3f 12/24/2014
+https://github.com/ACID-Scripts/WOTLK
+Compat: cmangos/mangos-wotlk 12803
+
+Unified-DB (UDB)
+e96661e6c1581665394186608086bc7fdf8c2160 12/22/2014
+https://github.com/unified-db/Database
+Compat: cmangos/mangos-wotlk 12801
+
+
