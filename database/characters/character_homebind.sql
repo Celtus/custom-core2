@@ -54,6 +54,7 @@ CREATE TABLE `character_homebind` (
 
 LOCK TABLES `character_homebind` WRITE;
 /*!40000 ALTER TABLE `character_homebind` DISABLE KEYS */;
+INSERT INTO `character_homebind` (`guid`, `map`, `zone`, `position_x`, `position_y`, `position_z`) VALUES (1,0,12,-8949.95,-132.493,83.5312);
 /*!40000 ALTER TABLE `character_homebind` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

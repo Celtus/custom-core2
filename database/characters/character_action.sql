@@ -53,6 +53,15 @@ CREATE TABLE `character_action` (
 
 LOCK TABLES `character_action` WRITE;
 /*!40000 ALTER TABLE `character_action` DISABLE KEYS */;
+INSERT INTO `character_action` (`guid`, `spec`, `button`, `action`, `type`) VALUES (1,0,0,6603,0);
+INSERT INTO `character_action` (`guid`, `spec`, `button`, `action`, `type`) VALUES (1,0,1,78,0);
+INSERT INTO `character_action` (`guid`, `spec`, `button`, `action`, `type`) VALUES (1,0,9,59752,0);
+INSERT INTO `character_action` (`guid`, `spec`, `button`, `action`, `type`) VALUES (1,0,72,6603,0);
+INSERT INTO `character_action` (`guid`, `spec`, `button`, `action`, `type`) VALUES (1,0,73,78,0);
+INSERT INTO `character_action` (`guid`, `spec`, `button`, `action`, `type`) VALUES (1,0,82,59752,0);
+INSERT INTO `character_action` (`guid`, `spec`, `button`, `action`, `type`) VALUES (1,0,84,6603,0);
+INSERT INTO `character_action` (`guid`, `spec`, `button`, `action`, `type`) VALUES (1,0,96,6603,0);
+INSERT INTO `character_action` (`guid`, `spec`, `button`, `action`, `type`) VALUES (1,0,108,6603,0);
 /*!40000 ALTER TABLE `character_action` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

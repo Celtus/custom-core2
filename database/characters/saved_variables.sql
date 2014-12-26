@@ -52,6 +52,7 @@ CREATE TABLE `saved_variables` (
 
 LOCK TABLES `saved_variables` WRITE;
 /*!40000 ALTER TABLE `saved_variables` DISABLE KEYS */;
+INSERT INTO `saved_variables` (`NextArenaPointDistributionTime`, `NextDailyQuestResetTime`, `NextWeeklyQuestResetTime`, `NextMonthlyQuestResetTime`, `cleaning_flags`) VALUES (0,1419678000,1420023600,1420088400,0);
 /*!40000 ALTER TABLE `saved_variables` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

@@ -52,6 +52,7 @@ CREATE TABLE `realmcharacters` (
 
 LOCK TABLES `realmcharacters` WRITE;
 /*!40000 ALTER TABLE `realmcharacters` DISABLE KEYS */;
+INSERT INTO `realmcharacters` (`realmid`, `acctid`, `numchars`) VALUES (1,1,1);
 /*!40000 ALTER TABLE `realmcharacters` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

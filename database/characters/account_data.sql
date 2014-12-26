@@ -52,6 +52,7 @@ CREATE TABLE `account_data` (
 
 LOCK TABLES `account_data` WRITE;
 /*!40000 ALTER TABLE `account_data` DISABLE KEYS */;
+INSERT INTO `account_data` (`account`, `type`, `time`, `data`) VALUES (1,0,1419598479,'SET autoLootDefault \"1\"\nSET displayFreeBagSlots \"1\"\nSET flaggedTutorials \"v##M##%##&##$##E\"\nSET profanityFilter \"0\"\nSET spamFilter \"0\"\nSET guildRecruitmentChannel \"0\"\nSET lockActionBars \"0\"\nSET cameraDistanceMaxFactor \"1\"\nSET showNewbieTips \"0\"\nSET UberTooltips \"0\"\nSET showTutorials \"0\"\n');
 /*!40000 ALTER TABLE `account_data` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

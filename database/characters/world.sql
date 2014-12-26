@@ -50,6 +50,10 @@ CREATE TABLE `world` (
 
 LOCK TABLES `world` WRITE;
 /*!40000 ALTER TABLE `world` DISABLE KEYS */;
+INSERT INTO `world` (`map`, `data`) VALUES (0,'');
+INSERT INTO `world` (`map`, `data`) VALUES (1,'');
+INSERT INTO `world` (`map`, `data`) VALUES (530,'');
+INSERT INTO `world` (`map`, `data`) VALUES (571,'');
 /*!40000 ALTER TABLE `world` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
